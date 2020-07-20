@@ -13,12 +13,15 @@ class CreateSite extends Migration
      */
     public function up()
     {
-        Schema::create('site', function (Blueprint $table) {
+        Schema::create('jogo', function (Blueprint $table) {
             $table->id();
             $table->string('jogo');
+            $table->string('logo');
             $table->string('frase');
             $table->string('desc_form');
-            $table->timestamps();
+            $table->integer('id_destaque');
+            $table->foreign('id_destaque')->references('id')->on('destaque');
+            $table->timestamps('');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateSite extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('site');
+        Schema::dropIfExists('jogo');
     }
 }
