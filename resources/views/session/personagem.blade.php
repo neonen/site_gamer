@@ -10,7 +10,7 @@
             <div class="card-cinza mx-auto">
               <img src="https://gamepedia.cursecdn.com/transistor_gamepedia/b/bc/Frontpagered.png" class="d-block w-100 game-card-img-contain" alt="...">
             </div>
-            <div class="pb-5 container">
+            <div class="pb-5 container text-center">
               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, neque, tempore id voluptatem harum qui eum ad odit nobis, nostrum vero ducimus. Totam laudantium architecto ipsum ipsa vero, consequuntur repellat?</p>
 
             </div>

@@ -4,9 +4,17 @@ body{
 
     background-color: $default;
 }
+.bg-default{
+    background-color: $default;
+    color: white;
+}
 .background{
     height: 500px;
     width: 100%;
+}
+
+.backgound-verde{
+    background-color: #7DEDE2;
 }
 
 .card-background{

@@ -10932,9 +10932,18 @@ body {
   background-color: #363636;
 }
 
+.bg-default {
+  background-color: #363636;
+  color: white;
+}
+
 .background {
   height: 500px;
   width: 100%;
+}
+
+.backgound-verde {
+  background-color: #7DEDE2;
 }
 
 .card-background {
