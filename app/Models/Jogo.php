@@ -18,4 +18,8 @@ class Jogo extends Model
     public function personagem(){
         return $this->hasOne(Personagem::class,'id_personagem','id');
     }
+
+    public function destaque(){
+        return $this->belongsTo(Destaque::class,'id_destaque','id');
+    }
 }

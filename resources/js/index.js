@@ -6,7 +6,7 @@ const jogo = new Jogo();
 
 $('#btn_edit_form').on('click',() =>{
     $('.modal-title').text('Editar conteudo do formulario');
-    let conteudo = ``;
+    let conteudo = jogo.inserir_form();
     $('.modal-body').html(conteudo);
     $('#modal').modal('show');
 });

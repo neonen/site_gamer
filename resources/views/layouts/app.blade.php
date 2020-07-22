@@ -1,3 +1,16 @@
+
+@php
+    $jogo = isset($jogo)? $jogo:null;
+    $titulo = null;
+    $destaque = null;
+    $desc_form = null;
+    if($jogo){
+        $titulo = $jogo->jogo;
+        $destaque = $jogo->destaque;
+        $desc_form = $jogo->desc_form;
+    }
+
+@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -26,6 +39,7 @@
         </main>
     </div>
 
+    @include('componente.modal')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

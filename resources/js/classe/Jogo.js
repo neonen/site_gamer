@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default class Jogo{
+    constructor(){
+        //super();
+        this.token = $("meta[name='csrf-token']").attr('content');
+    }
     listar(){}
     inserir(){
     /*html*/
         let form = `
-        <form method="post" action="/jogo/inserir/titulo">
+        <form method="post" action="/jogo/salvar">
+            <input type="hidden" name="_token" value="${this.token}"/>
         <div class="form-group">
             <label for="jogo">Titulo</label>
             <input type="text" class="form-control" id="jogo" name="jogo"/>
@@ -19,14 +24,14 @@ export default class Jogo{
 
         return form;
     }
-    editar(){
+    inserir_form(){
         /*html*/
         let form = `
-        <form method="post" action="/jogo/inserir/titulo">
-        <input type="hidden" id="id" name="id" value/>
+        <form method="post" action="/jogo/salvar">
+            <input type="hidden" name="_token" value="${this.token}"/>
         <div class="form-group">
-            <label for="jogo">Titulo</label>
-            <input type="text" class="form-control" id="jogo" name="jogo" value/>
+            <label for="desc_form">Descrição</label>
+            <textarea class="form-control" id="desc_form" name="desc_form"></textarea>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Salvar</button>

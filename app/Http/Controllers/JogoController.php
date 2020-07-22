@@ -17,4 +17,17 @@ class JogoController extends Controller
         return view('page/index',compact('jogo','destaques','personagens'));
 
     }
+
+    public function salvar(Request $request){
+        $jogo = Jogo::first();
+        if($jogo){
+            $jogo->fill($request->post());
+            $jogo->update();
+        }else{
+            $jogo = new Jogo($request->input());
+            $jogo->save();
+        }
+
+        return redirect('/');
+    }
 }

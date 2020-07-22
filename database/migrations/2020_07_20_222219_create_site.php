@@ -15,11 +15,11 @@ class CreateSite extends Migration
     {
         Schema::create('jogo', function (Blueprint $table) {
             $table->id();
-            $table->string('jogo');
-            $table->string('logo');
-            $table->string('frase');
-            $table->string('desc_form');
-            $table->integer('id_destaque');
+            $table->string('jogo')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('frase')->nullable();
+            $table->string('desc_form')->nullable();
+            $table->integer('id_destaque')->nullable();
             $table->foreign('id_destaque')->references('id')->on('destaque');
             $table->timestamps('');
         });

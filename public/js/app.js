@@ -65879,6 +65879,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Jogo = /*#__PURE__*/function () {
   function Jogo() {
     _classCallCheck(this, Jogo);
+
+    //super();
+    this.token = $("meta[name='csrf-token']").attr('content');
   }
 
   _createClass(Jogo, [{
@@ -65888,14 +65891,14 @@ var Jogo = /*#__PURE__*/function () {
     key: "inserir",
     value: function inserir() {
       /*html*/
-      var form = "\n        <form method=\"post\" action=\"/jogo/inserir/titulo\">\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\"/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ";
+      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\"/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
       return form;
     }
   }, {
-    key: "editar",
-    value: function editar() {
+    key: "inserir_form",
+    value: function inserir_form() {
       /*html*/
-      var form = "\n        <form method=\"post\" action=\"/jogo/inserir/titulo\">\n        <input type=\"hidden\" id=\"id\" name=\"id\" value/>\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\" value/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ";
+      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"desc_form\">Descri\xE7\xE3o</label>\n            <textarea class=\"form-control\" id=\"desc_form\" name=\"desc_form\"></textarea>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
       return form;
     }
   }, {
@@ -66005,7 +66008,7 @@ var helper = new _helpers_helper__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var jogo = new _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__["default"]();
 $('#btn_edit_form').on('click', function () {
   $('.modal-title').text('Editar conteudo do formulario');
-  var conteudo = "";
+  var conteudo = jogo.inserir_form();
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });

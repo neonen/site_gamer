@@ -4,7 +4,11 @@
     <div class="card container py-2">
         <div class="card-body text-center">
             <h2 text-success>FORMULÁRIO</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, quod sequi sint a obcaecati, deleniti animi laborum, magnam quam ab ut? Dolores quibusdam dicta pariatur nulla soluta! Reiciendis, nesciunt adipisci.</p>
+            @if($desc_form)
+                {{$desc_form}}
+            @else
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, quod sequi sint a obcaecati, deleniti animi laborum, magnam quam ab ut? Dolores quibusdam dicta pariatur nulla soluta! Reiciendis, nesciunt adipisci.</p>
+            @endif
             @auth
             <div class="form-group">
             <button id="btn_edit_form" class="btn btn-primary">
