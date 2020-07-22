@@ -4,7 +4,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 @auth
-                <button class="btn btn-primary">
+                <button id="btn_edit_titulo" class="btn btn-primary">
                     Editar Titulo
                 </button>
                 @endauth

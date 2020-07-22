@@ -7,7 +7,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, quod sequi sint a obcaecati, deleniti animi laborum, magnam quam ab ut? Dolores quibusdam dicta pariatur nulla soluta! Reiciendis, nesciunt adipisci.</p>
             @auth
             <div class="form-group">
-            <button class="btn btn-primary">
+            <button id="btn_edit_form" class="btn btn-primary">
                 Editar Descrição do formulário
             </button>
             </div>

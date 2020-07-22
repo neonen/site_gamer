@@ -65853,6 +65853,66 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/classe/Jogo.js":
+/*!*************************************!*\
+  !*** ./resources/js/classe/Jogo.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Jogo; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+var Jogo = /*#__PURE__*/function () {
+  function Jogo() {
+    _classCallCheck(this, Jogo);
+  }
+
+  _createClass(Jogo, [{
+    key: "listar",
+    value: function listar() {}
+  }, {
+    key: "inserir",
+    value: function inserir() {
+      /*html*/
+      var form = "\n        <form method=\"post\" action=\"/jogo/inserir/titulo\">\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\"/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ";
+      return form;
+    }
+  }, {
+    key: "editar",
+    value: function editar() {
+      /*html*/
+      var form = "\n        <form method=\"post\" action=\"/jogo/inserir/titulo\">\n        <input type=\"hidden\" id=\"id\" name=\"id\" value/>\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\" value/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ";
+      return form;
+    }
+  }, {
+    key: "excluir",
+    value: function excluir() {}
+  }, {
+    key: "buscar",
+    value: function buscar() {}
+  }]);
+
+  return Jogo;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Example.js":
 /*!********************************************!*\
   !*** ./resources/js/components/Example.js ***!
@@ -65893,14 +65953,86 @@ if (document.getElementById('example')) {
 
 /***/ }),
 
+/***/ "./resources/js/helpers/helper.js":
+/*!****************************************!*\
+  !*** ./resources/js/helpers/helper.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Helper; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Helper = /*#__PURE__*/function () {
+  function Helper() {
+    _classCallCheck(this, Helper);
+  }
+
+  _createClass(Helper, [{
+    key: "hello_word",
+    value: function hello_word() {
+      return "Olá, Mundo!";
+    }
+  }]);
+
+  return Helper;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/index.js":
 /*!*******************************!*\
   !*** ./resources/js/index.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpers_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/helper */ "./resources/js/helpers/helper.js");
+/* harmony import */ var _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classe/Jogo */ "./resources/js/classe/Jogo.js");
 
 
+var helper = new _helpers_helper__WEBPACK_IMPORTED_MODULE_0__["default"]();
+var jogo = new _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__["default"]();
+$('#btn_edit_form').on('click', function () {
+  $('.modal-title').text('Editar conteudo do formulario');
+  var conteudo = "";
+  $('.modal-body').html(conteudo);
+  $('#modal').modal('show');
+});
+$('#btn_add_persona').on('click', function () {
+  $('.modal-title').text('Adicionar personagem');
+  var conteudo = "";
+  $('.modal-body').html(conteudo);
+  $('#modal').modal('show');
+});
+$('#btn_edit_persona').on('click', function () {
+  $('.modal-title').text('Editar personagem');
+  var conteudo = "";
+  $('.modal-body').html(conteudo);
+  $('#modal').modal('show');
+});
+$('#btn_edit_destaque').on('click', function () {
+  $('.modal-title').text('Editar Destaque');
+  var conteudo = "";
+  $('.modal-body').html(conteudo);
+  $('#modal').modal('show');
+});
+$('#btn_edit_titulo').on('click', function () {
+  $('.modal-title').text('Editar Titulo');
+  var conteudo = jogo.inserir();
+  $('.modal-body').html(conteudo);
+  $('#modal').modal('show');
+});
 
 /***/ }),
 

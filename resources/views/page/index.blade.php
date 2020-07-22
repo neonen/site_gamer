@@ -10,4 +10,5 @@
         <button type="button" class="btn btn-primary my-3 right">Topo</button>
     </section>
 
+    @include('componente.modal')
 @endsection

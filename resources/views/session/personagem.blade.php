@@ -2,7 +2,7 @@
 
 @auth
 <div class="text-center my-3">
-    <button class="btn btn-primary">
+    <button id="btn_add_persona" class="btn btn-primary">
         Adicionar personagem
     </button>
 </div>
@@ -22,7 +22,7 @@
               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, neque, tempore id voluptatem harum qui eum ad odit nobis, nostrum vero ducimus. Totam laudantium architecto ipsum ipsa vero, consequuntur repellat?</p>
               @auth
               <div class="text-center my-3">
-                  <button class="btn btn-primary">
+                  <button id="btn_edit_persona" class="btn btn-primary">
                       Editar personagem
                   </button>
               </div>
