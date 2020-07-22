@@ -5,7 +5,13 @@
         <div class="card-body text-center">
             <h2 text-success>FORMULÁRIO</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, quod sequi sint a obcaecati, deleniti animi laborum, magnam quam ab ut? Dolores quibusdam dicta pariatur nulla soluta! Reiciendis, nesciunt adipisci.</p>
-
+            @auth
+            <div class="form-group">
+            <button class="btn btn-primary">
+                Editar Descrição do formulário
+            </button>
+            </div>
+            @endauth
             <form class="row">
             <div class="form-group col-md-6">
                 <input type="text" class="form-control" id="exampleInputnome" placeholder="Nome">

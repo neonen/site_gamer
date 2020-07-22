@@ -1,5 +1,13 @@
 <section id="personagem">
 
+@auth
+<div class="text-center my-3">
+    <button class="btn btn-primary">
+        Adicionar personagem
+    </button>
+</div>
+@endauth
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -12,7 +20,13 @@
             </div>
             <div class="pb-5 container text-center">
               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, neque, tempore id voluptatem harum qui eum ad odit nobis, nostrum vero ducimus. Totam laudantium architecto ipsum ipsa vero, consequuntur repellat?</p>
-
+              @auth
+              <div class="text-center my-3">
+                  <button class="btn btn-primary">
+                      Editar personagem
+                  </button>
+              </div>
+              @endauth
             </div>
           </div>
         </div>
