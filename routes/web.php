@@ -23,4 +23,8 @@ Route::middleware('auth')->group(function(){
         Route::post('salvar','JogoController@salvar');
     });
 
+    Route::prefix('personagem')->group(function(){
+        Route::post('salvar','PersonagemController@salvar');
+    });
+
 });

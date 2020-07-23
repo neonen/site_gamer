@@ -1,8 +1,10 @@
 import Helper from './helpers/helper';
 import Jogo from './classe/Jogo';
+import Personagem from './classe/Personagem';
 
 const helper = new Helper();
 const jogo = new Jogo();
+const personagem = new Personagem();
 
 $('#btn_edit_form').on('click',() =>{
     $('.modal-title').text('Editar conteudo do formulario');
@@ -13,7 +15,7 @@ $('#btn_edit_form').on('click',() =>{
 
 $('#btn_add_persona').on('click',() =>{
     $('.modal-title').text('Adicionar personagem');
-    let conteudo = ``;
+    let conteudo = personagem.inserir();
     $('.modal-body').html(conteudo);
     $('#modal').modal('show');
 });

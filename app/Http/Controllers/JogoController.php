@@ -13,7 +13,7 @@ class JogoController extends Controller
     public function index(){
         $jogo = Jogo::first();
         $destaques = Destaque::all();
-        $personagens = Personagem::all();
+        $personagens = Personagem::all()->chunk(3);
         return view('page/index',compact('jogo','destaques','personagens'));
 
     }

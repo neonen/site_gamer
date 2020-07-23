@@ -65916,6 +65916,58 @@ var Jogo = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/classe/Personagem.js":
+/*!*******************************************!*\
+  !*** ./resources/js/classe/Personagem.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Personagem; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Personagem = /*#__PURE__*/function () {
+  function Personagem() {
+    _classCallCheck(this, Personagem);
+
+    //super();
+    this.token = $("meta[name='csrf-token']").attr('content');
+  }
+
+  _createClass(Personagem, [{
+    key: "listar",
+    value: function listar() {}
+  }, {
+    key: "inserir",
+    value: function inserir() {
+      /*html*/
+      var form = "\n            <form method=\"post\" action=\"/personagem/salvar\" enctype=\"multipart/form-data\">\n                <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n            <div class=\"form-group\">\n                <label for=\"nome\">Nome do Personagem</label>\n                <input type=\"text\" class=\"form-control\" id=\"nome\" name=\"nome\"/>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"frase\">Frase do Personagem</label>\n                <input type=\"text\" class=\"form-control\" id=\"frase\" name=\"frase\"/>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"texto\">Texto de Apresenta\xE7\xE3o</label>\n                <textarea class=\"form-control\" id=\"texto\" name=\"texto\"></textarea>\n            </div>\n            <div class=\"custom-file\">\n                <input type=\"file\" class=\"custom-file-input\" id=\"personagem\" name=\"personagem\">\n                <label class=\"custom-file-label\" for=\"personagem\" >Image do personagem</label>\n            </div>\n            <div class=\"custom-file\">\n                <input type=\"file\" class=\"custom-file-input\" id=\"card\" name=\"card\">\n                <label class=\"custom-file-label\" for=\"card\" >Image do card</label>\n            </div>\n            <div class=\"form-group\">\n                <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n            </div>\n            </form>\n            ");
+      return form;
+    }
+  }, {
+    key: "editar",
+    value: function editar() {}
+  }, {
+    key: "excluir",
+    value: function excluir() {}
+  }, {
+    key: "buscar",
+    value: function buscar() {}
+  }]);
+
+  return Personagem;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Example.js":
 /*!********************************************!*\
   !*** ./resources/js/components/Example.js ***!
@@ -66002,10 +66054,13 @@ var Helper = /*#__PURE__*/function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/helper */ "./resources/js/helpers/helper.js");
 /* harmony import */ var _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classe/Jogo */ "./resources/js/classe/Jogo.js");
+/* harmony import */ var _classe_Personagem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./classe/Personagem */ "./resources/js/classe/Personagem.js");
+
 
 
 var helper = new _helpers_helper__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var jogo = new _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__["default"]();
+var personagem = new _classe_Personagem__WEBPACK_IMPORTED_MODULE_2__["default"]();
 $('#btn_edit_form').on('click', function () {
   $('.modal-title').text('Editar conteudo do formulario');
   var conteudo = jogo.inserir_form();
@@ -66014,7 +66069,7 @@ $('#btn_edit_form').on('click', function () {
 });
 $('#btn_add_persona').on('click', function () {
   $('.modal-title').text('Adicionar personagem');
-  var conteudo = "";
+  var conteudo = personagem.inserir();
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });
