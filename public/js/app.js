@@ -65890,15 +65890,19 @@ var Jogo = /*#__PURE__*/function () {
   }, {
     key: "inserir",
     value: function inserir() {
+      var texto = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
       /*html*/
-      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\"/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
+      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\" value=\"").concat(texto, "\"/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
       return form;
     }
   }, {
     key: "inserir_form",
     value: function inserir_form() {
+      var texto = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
       /*html*/
-      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"desc_form\">Descri\xE7\xE3o</label>\n            <textarea class=\"form-control\" id=\"desc_form\" name=\"desc_form\"></textarea>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
+      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"desc_form\">Descri\xE7\xE3o</label>\n            <textarea class=\"form-control\" id=\"desc_form\" name=\"desc_form\">").concat(texto, "</textarea>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
       return form;
     }
   }, {
@@ -65952,7 +65956,11 @@ var Personagem = /*#__PURE__*/function () {
     }
   }, {
     key: "editar",
-    value: function editar() {}
+    value: function editar(dado) {
+      /*html*/
+      var form = "\n            <form method=\"post\" action=\"/personagem/editar\" enctype=\"multipart/form-data\">\n                <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n                <input type=\"hidden\" name=\"id\" value=\"").concat(dado.id, "\"/>\n            <div class=\"form-group\">\n                <label for=\"nome\">Nome do Personagem</label>\n                <input type=\"text\" class=\"form-control\" id=\"nome\" name=\"nome\" value=\"").concat(dado.nome, "\"/>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"frase\">Frase do Personagem</label>\n                <input type=\"text\" class=\"form-control\" id=\"frase\" name=\"frase\" value=\"").concat(dado.frase, "\"/>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"texto\">Texto de Apresenta\xE7\xE3o</label>\n                <textarea class=\"form-control\" id=\"texto\" name=\"texto\">").concat(dado.texto, "</textarea>\n            </div>\n            <div class=\"custom-file\">\n                <input type=\"file\" class=\"custom-file-input\" id=\"personagem\" name=\"personagem\">\n                <label class=\"custom-file-label\" for=\"personagem\" >Image do personagem</label>\n            </div>\n            <div class=\"custom-file\">\n                <input type=\"file\" class=\"custom-file-input\" id=\"card\" name=\"card\">\n                <label class=\"custom-file-label\" for=\"card\" >Image do card</label>\n            </div>\n            <div class=\"form-group\">\n                <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n            </div>\n            </form>\n            ");
+      return form;
+    }
   }, {
     key: "excluir",
     value: function excluir() {}
@@ -66055,6 +66063,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/helper */ "./resources/js/helpers/helper.js");
 /* harmony import */ var _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classe/Jogo */ "./resources/js/classe/Jogo.js");
 /* harmony import */ var _classe_Personagem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./classe/Personagem */ "./resources/js/classe/Personagem.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -66062,8 +66073,9 @@ var helper = new _helpers_helper__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var jogo = new _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__["default"]();
 var personagem = new _classe_Personagem__WEBPACK_IMPORTED_MODULE_2__["default"]();
 $('#btn_edit_form').on('click', function () {
+  var texto = $('#text_form').text();
   $('.modal-title').text('Editar conteudo do formulario');
-  var conteudo = jogo.inserir_form();
+  var conteudo = jogo.inserir_form(texto);
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });
@@ -66073,9 +66085,11 @@ $('#btn_add_persona').on('click', function () {
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });
-$('#btn_edit_persona').on('click', function () {
+$('.btn_edit_persona').on('click', function (e) {
+  var obj = JSON.parse(e.target.value);
+  console.log(obj);
   $('.modal-title').text('Editar personagem');
-  var conteudo = "";
+  var conteudo = personagem.editar(obj);
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });
@@ -66086,8 +66100,9 @@ $('#btn_edit_destaque').on('click', function () {
   $('#modal').modal('show');
 });
 $('#btn_edit_titulo').on('click', function () {
+  var titulo = $('#titulo_jogo').text();
   $('.modal-title').text('Editar Titulo');
-  var conteudo = jogo.inserir();
+  var conteudo = jogo.inserir(titulo);
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });

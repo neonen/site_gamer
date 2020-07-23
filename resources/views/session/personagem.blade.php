@@ -20,14 +20,14 @@
         <div class="col-md-4">
           <div class="card borda-redonda">
             <div class="card-cinza mx-auto">
-              <img src='{{asset("$persona->personagem")}}' class="d-block w-100 game-card-img-contain" alt="...">
+              <img src='{{asset("$persona->personagem")}}' class="d-block w-100 game-card-img-contain" alt="{{$persona->nome}}">
             </div>
             <div class="pb-5 container text-center">
               <h3>{{$persona->nome}}</h3>
               <p>{{$persona->texto}}</p>
               @auth
               <div class="text-center my-3">
-                  <button id="btn_edit_persona" class="btn btn-primary">
+                  <button id="" class="btn_edit_persona btn btn-primary" value="{{$persona}}">
                       Editar personagem
                   </button>
               </div>

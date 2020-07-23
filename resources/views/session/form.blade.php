@@ -5,9 +5,9 @@
         <div class="card-body text-center">
             <h2 text-success>FORMULÁRIO</h2>
             @if($desc_form)
-                {{$desc_form}}
+            <p id="text_form">{{$desc_form}}</p>
             @else
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, quod sequi sint a obcaecati, deleniti animi laborum, magnam quam ab ut? Dolores quibusdam dicta pariatur nulla soluta! Reiciendis, nesciunt adipisci.</p>
+                <p id="text_form">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, quod sequi sint a obcaecati, deleniti animi laborum, magnam quam ab ut? Dolores quibusdam dicta pariatur nulla soluta! Reiciendis, nesciunt adipisci.</p>
             @endif
             @auth
             <div class="form-group">

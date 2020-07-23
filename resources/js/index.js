@@ -1,14 +1,16 @@
 import Helper from './helpers/helper';
 import Jogo from './classe/Jogo';
 import Personagem from './classe/Personagem';
+import { parseJSON } from 'jquery';
 
 const helper = new Helper();
 const jogo = new Jogo();
 const personagem = new Personagem();
 
 $('#btn_edit_form').on('click',() =>{
+    let texto = $('#text_form').text()
     $('.modal-title').text('Editar conteudo do formulario');
-    let conteudo = jogo.inserir_form();
+    let conteudo = jogo.inserir_form(texto);
     $('.modal-body').html(conteudo);
     $('#modal').modal('show');
 });
@@ -20,9 +22,11 @@ $('#btn_add_persona').on('click',() =>{
     $('#modal').modal('show');
 });
 
-$('#btn_edit_persona').on('click',() =>{
+$('.btn_edit_persona').on('click',(e) =>{
+    let obj = JSON.parse(e.target.value);
+    console.log(obj)
     $('.modal-title').text('Editar personagem');
-    let conteudo = ``;
+    let conteudo = personagem.editar(obj);
     $('.modal-body').html(conteudo);
     $('#modal').modal('show');
 });
@@ -35,8 +39,9 @@ $('#btn_edit_destaque').on('click',() =>{
 });
 
 $('#btn_edit_titulo').on('click',() =>{
+    let titulo = $('#titulo_jogo').text()
     $('.modal-title').text('Editar Titulo');
-    let conteudo = jogo.inserir();
+    let conteudo = jogo.inserir(titulo);
     $('.modal-body').html(conteudo);
     $('#modal').modal('show');
 });

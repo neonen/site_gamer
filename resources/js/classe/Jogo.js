@@ -7,14 +7,14 @@ export default class Jogo{
         this.token = $("meta[name='csrf-token']").attr('content');
     }
     listar(){}
-    inserir(){
+    inserir(texto = null){
     /*html*/
         let form = `
         <form method="post" action="/jogo/salvar">
             <input type="hidden" name="_token" value="${this.token}"/>
         <div class="form-group">
             <label for="jogo">Titulo</label>
-            <input type="text" class="form-control" id="jogo" name="jogo"/>
+            <input type="text" class="form-control" id="jogo" name="jogo" value="${texto}"/>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Salvar</button>
@@ -24,14 +24,14 @@ export default class Jogo{
 
         return form;
     }
-    inserir_form(){
+    inserir_form(texto = null){
         /*html*/
         let form = `
         <form method="post" action="/jogo/salvar">
             <input type="hidden" name="_token" value="${this.token}"/>
         <div class="form-group">
             <label for="desc_form">Descrição</label>
-            <textarea class="form-control" id="desc_form" name="desc_form"></textarea>
+            <textarea class="form-control" id="desc_form" name="desc_form">${texto}</textarea>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Salvar</button>

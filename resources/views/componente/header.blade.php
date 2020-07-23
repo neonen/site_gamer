@@ -1,9 +1,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark shadow-sm bg-default">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ $titulo ? $titulo : config('app.name', 'Laravel') }}
-                </a>
+                <a id="titulo_jogo" class="navbar-brand" href="{{ url('/') }}">{{ $titulo ? $titulo : config('app.name', 'Laravel') }}</a>
                 @auth
                 <button id="btn_edit_titulo" class="btn btn-primary">
                     Editar Titulo

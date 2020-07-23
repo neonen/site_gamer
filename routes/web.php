@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function(){
 
     Route::prefix('personagem')->group(function(){
         Route::post('salvar','PersonagemController@salvar');
+        Route::post('editar','PersonagemController@editar');
+
     });
 
 });
