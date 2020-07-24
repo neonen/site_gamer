@@ -8,6 +8,7 @@ class Destaque extends Model
 {
     protected $table = "destaque";
     protected $fillable = [
+        "nome",
         "background",
         "cor_primaria",
         "cor_secundaria",
@@ -15,6 +16,6 @@ class Destaque extends Model
     ];
 
     public function personagem(){
-        return $this->hasOne(Personagem::class,'id_personagem','id');
+        return $this->belongsTo(Personagem::class,'id_personagem','id');
     }
 }

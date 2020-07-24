@@ -1,4 +1,5 @@
 @php
+$primeiro = true;
 @endphp
 <section id="personagem">
 
@@ -14,7 +15,10 @@
   <div class="carousel-inner">
 @foreach($personagens as $personagem)
 
-    <div class="carousel-item active">
+    <div class="carousel-item {{$primeiro ? 'active':''}}">
+      @php
+        $primeiro=false;
+      @endphp
       <div class="container mx-auto row d-flex justify-content-around">
         @foreach ($personagem as $persona)
         <div class="col-md-4">
@@ -29,6 +33,9 @@
               <div class="text-center my-3">
                   <button id="" class="btn_edit_persona btn btn-primary" value="{{$persona}}">
                       Editar personagem
+                  </button>
+                  <button id="" class="btn_destaque btn btn-primary" value="{{$persona->id}}">
+                      Destaque
                   </button>
               </div>
               @endauth

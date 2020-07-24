@@ -17,7 +17,7 @@ class CreateDestaque extends Migration
             $table->id();
             $table->string('background');
             $table->string('cor_primaria');
-            $table->string('cor_secundaria');
+            $table->string('nome');
             $table->integer('id_personagem');
             $table->foreign('id_personagem')->references('id')->on('personagem');
             $table->timestamps();

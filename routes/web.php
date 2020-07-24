@@ -29,4 +29,10 @@ Route::middleware('auth')->group(function(){
 
     });
 
+    Route::prefix('destaque')->group(function(){
+        Route::post('salvar','DestaqueController@salvar');
+        Route::post('editar','DestaqueController@editar');
+
+    });
+
 });

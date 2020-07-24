@@ -65853,6 +65853,58 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/classe/Destaque.js":
+/*!*****************************************!*\
+  !*** ./resources/js/classe/Destaque.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Destaque; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Destaque = /*#__PURE__*/function () {
+  function Destaque() {
+    _classCallCheck(this, Destaque);
+
+    //super();
+    this.token = $("meta[name='csrf-token']").attr('content');
+  }
+
+  _createClass(Destaque, [{
+    key: "inserir",
+    value: function inserir(data) {
+      /*html*/
+      var form = "\n            <form method=\"post\" action=\"/destaque/salvar\" enctype=\"multipart/form-data\">\n                <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n                <input type=\"hidden\" name=\"id_personagem\" value=\"").concat(data, "\"/>\n            <div class=\"form-group\">\n                <label for=\"nome\">Nome do Tema de Destaque</label>\n                <input type=\"text\" class=\"form-control\" id=\"nome\" name=\"nome\"/>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"cor_primaria\">Cor de destaque</label>\n                <input type=\"color\" class=\"form-control\" id=\"cor_primaria\" name=\"cor_primaria\"/>\n            </div>\n            <div class=\"custom-file\">\n                <input type=\"file\" class=\"custom-file-input\" id=\"background\" name=\"background\">\n                <label class=\"custom-file-label\" for=\"background\" >Image de Fundo</label>\n            </div>\n            <div class=\"form-group\">\n                <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n            </div>\n            </form>\n            ");
+      return form;
+    }
+  }, {
+    key: "mudar",
+    value: function mudar(dados) {
+      var options = "";
+      dados.forEach(function (dado) {
+        options += "<option value=\"".concat(dado.id, "\">").concat(dado.nome, "</option>");
+      });
+      /*html*/
+
+      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n            <div class=\"form-group\">\n            <label for=\"id_destaque\">Example select</label>\n            <select class=\"form-control\" id=\"id_destaque\" name=\"id_destaque\">\n              <option value=\"\">Selecionar Destaque</option>\n              ").concat(options, "\n            </select>\n          </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
+      return form;
+    }
+  }]);
+
+  return Destaque;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/classe/Jogo.js":
 /*!*************************************!*\
   !*** ./resources/js/classe/Jogo.js ***!
@@ -66063,8 +66115,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/helper */ "./resources/js/helpers/helper.js");
 /* harmony import */ var _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classe/Jogo */ "./resources/js/classe/Jogo.js");
 /* harmony import */ var _classe_Personagem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./classe/Personagem */ "./resources/js/classe/Personagem.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _classe_Destaque__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./classe/Destaque */ "./resources/js/classe/Destaque.js");
 
 
 
@@ -66072,6 +66123,7 @@ __webpack_require__.r(__webpack_exports__);
 var helper = new _helpers_helper__WEBPACK_IMPORTED_MODULE_0__["default"]();
 var jogo = new _classe_Jogo__WEBPACK_IMPORTED_MODULE_1__["default"]();
 var personagem = new _classe_Personagem__WEBPACK_IMPORTED_MODULE_2__["default"]();
+var destaque = new _classe_Destaque__WEBPACK_IMPORTED_MODULE_3__["default"]();
 $('#btn_edit_form').on('click', function () {
   var texto = $('#text_form').text();
   $('.modal-title').text('Editar conteudo do formulario');
@@ -66087,15 +66139,22 @@ $('#btn_add_persona').on('click', function () {
 });
 $('.btn_edit_persona').on('click', function (e) {
   var obj = JSON.parse(e.target.value);
-  console.log(obj);
   $('.modal-title').text('Editar personagem');
   var conteudo = personagem.editar(obj);
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });
-$('#btn_edit_destaque').on('click', function () {
-  $('.modal-title').text('Editar Destaque');
-  var conteudo = "";
+$('.btn_destaque').on('click', function (e) {
+  var obj = e.target.value;
+  $('.modal-title').text('Criar destaque');
+  var conteudo = destaque.inserir(obj);
+  $('.modal-body').html(conteudo);
+  $('#modal').modal('show');
+});
+$('#btn_edit_destaque').on('click', function (e) {
+  var obj = JSON.parse(e.target.value);
+  $('.modal-title').text('Mudar Destaque');
+  var conteudo = destaque.mudar(obj);
   $('.modal-body').html(conteudo);
   $('#modal').modal('show');
 });
