@@ -10,7 +10,7 @@
 <div class="background d-flex justify-content-center" style="background-image: url({{asset($destaque->background)}});background-repeat: round;">
     <div class="card text-center text-white" 
         style="background: rgb(254,0,0);
-            background: linear-gradient( {{$destaque->cor_primaria}} 50%, rgba(0,0,0,0) 100%);">
+            background: linear-gradient( {{$destaque->cor_primaria}}bf 50%, rgba(0,0,0,0) 100%);">
         <h4 id="personagem_nome" class="mt-1">{{$destaque->personagem->nome}}</h4>
         <img id="personagem_card" 
         src="{{asset($destaque->personagem->card)}}" 
