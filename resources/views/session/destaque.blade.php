@@ -11,7 +11,7 @@
     <div class="card text-center text-white" 
         style="background: rgb(254,0,0);
             background: linear-gradient( {{$destaque->cor_primaria}} 50%, rgba(0,0,0,0) 100%);">
-        <h4 id="personagem_nome">{{$destaque->personagem->nome}}</h4>
+        <h4 id="personagem_nome" class="mt-1">{{$destaque->personagem->nome}}</h4>
         <img id="personagem_card" 
         src="{{asset($destaque->personagem->card)}}" 
         class="img-fluid game-card game-card-img" alt="Personagem">

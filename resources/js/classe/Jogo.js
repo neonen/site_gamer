@@ -10,12 +10,16 @@ export default class Jogo{
     inserir(texto = null){
     /*html*/
         let form = `
-        <form method="post" action="/jogo/salvar">
+        <form method="post" action="/jogo/salvar" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="${this.token}"/>
         <div class="form-group">
             <label for="jogo">Titulo</label>
             <input type="text" class="form-control" id="jogo" name="jogo" value="${texto}"/>
         </div>
+        <div class="custom-file">
+                <input type="file" class="custom-file-input" id="logo" name="logo">
+                <label class="custom-file-label" for="logo" >Image da Logo</label>
+            </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>

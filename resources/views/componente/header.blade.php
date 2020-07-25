@@ -1,6 +1,9 @@
 
 <nav class="navbar navbar-expand-md navbar-dark shadow-sm bg-default">
             <div class="container">
+                @if($logo)
+                <img src="{{asset($logo)}}" width="30" height="30" class="d-inline-block align-top" alt="">
+                @endif
                 <a id="titulo_jogo" class="navbar-brand" href="{{ url('/') }}">{{ $titulo ? $titulo : config('app.name', 'Laravel') }}</a>
                 @auth
                 <button id="btn_edit_titulo" class="btn btn-primary">

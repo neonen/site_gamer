@@ -7,6 +7,7 @@ use App\Models\Jogo;
 use App\Models\Personagem;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class JogoController extends Controller
 {
@@ -25,6 +26,12 @@ class JogoController extends Controller
             $jogo->update();
         }else{
             $jogo = new Jogo($request->input());
+            $jogo->save();
+        }
+        if($request->logo){
+            $path_logo = $request->file('logo')->store('img');
+            Storage::delete($jogo->logo);
+            $jogo->logo = $path_logo;
             $jogo->save();
         }
 

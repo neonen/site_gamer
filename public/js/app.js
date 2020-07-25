@@ -65945,7 +65945,7 @@ var Jogo = /*#__PURE__*/function () {
       var texto = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
       /*html*/
-      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\" value=\"").concat(texto, "\"/>\n        </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
+      var form = "\n        <form method=\"post\" action=\"/jogo/salvar\" enctype=\"multipart/form-data\">\n            <input type=\"hidden\" name=\"_token\" value=\"".concat(this.token, "\"/>\n        <div class=\"form-group\">\n            <label for=\"jogo\">Titulo</label>\n            <input type=\"text\" class=\"form-control\" id=\"jogo\" name=\"jogo\" value=\"").concat(texto, "\"/>\n        </div>\n        <div class=\"custom-file\">\n                <input type=\"file\" class=\"custom-file-input\" id=\"logo\" name=\"logo\">\n                <label class=\"custom-file-label\" for=\"logo\" >Image da Logo</label>\n            </div>\n        <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-primary\">Salvar</button>\n        </div>\n        </form>\n        ");
       return form;
     }
   }, {

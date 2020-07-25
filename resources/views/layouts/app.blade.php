@@ -4,10 +4,12 @@
     $titulo = null;
     $destaque = null;
     $desc_form = null;
+    $logo = null;
     if($jogo){
         $titulo = $jogo->jogo;
         $destaque = $jogo->destaque;
         $desc_form = $jogo->desc_form;
+        $logo = $jogo->logo;
     }
 
 @endphp
@@ -20,8 +22,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $titulo ? $titulo : config('app.name', 'Laravel') }}</title>
 
+    @if($logo)
+    <link rel="shortcut icon" href="{{asset($logo)}}" >
+    @endif
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

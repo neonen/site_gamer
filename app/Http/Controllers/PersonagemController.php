@@ -32,14 +32,11 @@ class PersonagemController extends Controller
             $path_person = $request->file('personagem')->store('img');
             Storage::delete($personagem->personagem);
             $personagem->personagem = $path_person;
-            //$personagem->save();
-            //dd($path_person);
         }
         if($request->card){
             $path_card = $request->file('card')->store('img');
             Storage::delete($personagem->card);
             $personagem->card = $path_card;
-            //$personagem->save();
         }
         $personagem->update();
         
